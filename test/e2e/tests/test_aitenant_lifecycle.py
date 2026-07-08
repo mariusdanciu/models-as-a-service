@@ -23,6 +23,18 @@ MAAS_SUBSCRIPTION_NAMESPACE = os.environ.get("MAAS_SUBSCRIPTION_NAMESPACE", "mod
 GATEWAY_NAMESPACE = os.environ.get("GATEWAY_NAMESPACE", "openshift-ingress")
 GATEWAY_NAME = os.environ.get("GATEWAY_NAME", "maas-default-gateway")
 DEPLOYMENT_NAMESPACE = os.environ.get("DEPLOYMENT_NAMESPACE", "opendatahub")
+# Infrastructure namespace where maas-api deployment and HTTPRoutes are created
+# Handles: not set → AUTO-derived, "" → no separation (use DEPLOYMENT_NAMESPACE), "AUTO" → derive, explicit value → use it
+_infra_ns_raw = os.environ.get("INFRA_NAMESPACE")
+if _infra_ns_raw is None or _infra_ns_raw == "AUTO":
+    # Default to AUTO-derived (opendatahub → odh-ai-gateway-infra, redhat-ods-applications → redhat-ai-gateway-infra)
+    INFRA_NAMESPACE = "odh-ai-gateway-infra" if DEPLOYMENT_NAMESPACE == "opendatahub" else "redhat-ai-gateway-infra"
+elif _infra_ns_raw == "":
+    # Empty string means no separation (ROSA case)
+    INFRA_NAMESPACE = DEPLOYMENT_NAMESPACE
+else:
+    # Explicit custom namespace
+    INFRA_NAMESPACE = _infra_ns_raw
 AITENANT_GATEWAY_CLASS_NAME = os.environ.get("AITENANT_GATEWAY_CLASS_NAME", "openshift-default")
 OC_TIMEOUT = int(os.environ.get("E2E_OC_TIMEOUT", "60"))
 
@@ -141,13 +153,6 @@ def _new_aitenant_case():
     }
 
 
-def _admin_subject():
-    whoami = _oc_run(["whoami"])
-    if whoami.returncode == 0 and whoami.stdout.strip():
-        return whoami.stdout.strip()
-    return "system:authenticated"
-
-
 def _apply_gateway_fixture(case):
     _apply(
         {
@@ -183,16 +188,7 @@ def _apply_aitenant(case):
                 "name": case["aitenant_name"],
                 "namespace": AITENANT_NAMESPACE,
             },
-            "spec": {
-                "rbac": {
-                    "admins": [
-                        {
-                            "kind": "User",
-                            "name": _admin_subject(),
-                        }
-                    ]
-                },
-            },
+            "spec": {},
         }
     )
 
@@ -240,9 +236,9 @@ def _assert_aitenant_bootstrap_resources(case):
     assert tenant["spec"]["gatewayRef"]["name"] != case["gateway_name"]
 
     assert _get_json_or_none("role", case["tenant_admin_role"], case["tenant_ns"]) is not None
-    assert _get_json_or_none("rolebinding", case["tenant_admin_role"], case["tenant_ns"]) is not None
+    assert _get_json_or_none("rolebinding", case["tenant_admin_role"], case["tenant_ns"]) is None
     assert _get_json_or_none("role", case["object_admin_role"], AITENANT_NAMESPACE) is not None
-    assert _get_json_or_none("rolebinding", case["object_admin_role"], AITENANT_NAMESPACE) is not None
+    assert _get_json_or_none("rolebinding", case["object_admin_role"], AITENANT_NAMESPACE) is None
 
 
 def _delete_aitenant(case):
@@ -303,10 +299,10 @@ class TestAITenantLifecycle:
             "name": GATEWAY_NAME,
         }
 
-        assert _wait_for_json("deployment", "maas-api", DEPLOYMENT_NAMESPACE, timeout=180) is not None
-        assert _wait_for_json("service", "maas-api", DEPLOYMENT_NAMESPACE, timeout=180) is not None
-        assert _wait_for_json("httproute", "maas-api-route", DEPLOYMENT_NAMESPACE, timeout=180) is not None
-        assert _get_json_or_none("deployment", "maas-api-models-as-a-service", DEPLOYMENT_NAMESPACE) is None
+        assert _wait_for_json("deployment", "maas-api", INFRA_NAMESPACE, timeout=180) is not None
+        assert _wait_for_json("service", "maas-api", INFRA_NAMESPACE, timeout=180) is not None
+        assert _wait_for_json("httproute", "maas-api-route", INFRA_NAMESPACE, timeout=180) is not None
+        assert _get_json_or_none("deployment", "maas-api-models-as-a-service", INFRA_NAMESPACE) is None
         assert _get_json_or_none("service", "maas-api-models-as-a-service", DEPLOYMENT_NAMESPACE) is None
         assert _get_json_or_none("httproute", "maas-api-route-models-as-a-service", DEPLOYMENT_NAMESPACE) is None
 
@@ -395,9 +391,7 @@ class TestAITenantLifecycle:
             _delete_aitenant(case)
             _wait_for_not_found("tenant", TENANT_NAME, case["tenant_ns"])
             _wait_for_not_found("role", case["tenant_admin_role"], case["tenant_ns"])
-            _wait_for_not_found("rolebinding", case["tenant_admin_role"], case["tenant_ns"])
             _wait_for_not_found("role", case["object_admin_role"], AITENANT_NAMESPACE)
-            _wait_for_not_found("rolebinding", case["object_admin_role"], AITENANT_NAMESPACE)
 
             namespace = _get_json_or_none("namespace", case["tenant_ns"])
             assert namespace is not None
@@ -430,9 +424,7 @@ class TestAITenantLifecycle:
                     "apiVersion": "maas.opendatahub.io/v1alpha1",
                     "kind": "AITenant",
                     "metadata": {"name": aitenant_name, "namespace": AITENANT_NAMESPACE},
-                    "spec": {
-                        "rbac": {"admins": [{"kind": "User", "name": _admin_subject()}]},
-                    },
+                    "spec": {},
                 }
             )
             aitenant = _wait_for_json(
