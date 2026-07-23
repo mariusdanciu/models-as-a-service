@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://opendatahub-io.github.io/models-as-a-service/dev/architecture-internals/authentication-internals/">
+        <link rel="canonical" href="https://opendatahub-io.github.io/models-as-a-service/dev/migration/upgrade-to-3.5/">
       
       
-        <link rel="prev" href="../reconciliation-flow/">
+        <link rel="prev" href="../upgrade-to-3.4/">
       
       
-        <link rel="next" href="../../contributing/testing-guide/">
+        <link rel="next" href="../../concepts/architecture/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Authentication Internals - ODH Models-as-a-Service Documentation</title>
+        <title>Upgrade to 3.5 - ODH Models-as-a-Service Documentation</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#authentication-gateway-identity-internals" class="md-skip">
+        <a href="#upgrade-to-35" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Authentication Internals
+              Upgrade to 3.5
             
           </span>
         </div>
@@ -229,10 +229,12 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../.." class="md-tabs__link">
           
   
@@ -359,13 +361,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../controller-architecture/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../architecture-internals/controller-architecture/" class="md-tabs__link">
           
   
   
@@ -445,28 +445,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
-        
-          
-          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
             
   
   
@@ -484,7 +487,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
             
@@ -555,28 +558,31 @@
                 
   
   
+    
   
   
+  
     
     
     
     
       
       
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
         
           
+          
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_3" >
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="">
             
   
   
@@ -594,7 +600,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_1_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -612,7 +618,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../migration/tier-to-subscription/" class="md-nav__link">
+      <a href="../tier-to-subscription/" class="md-nav__link">
         
   
   
@@ -640,7 +646,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../migration/upgrade-to-3.4/" class="md-nav__link">
+      <a href="../upgrade-to-3.4/" class="md-nav__link">
         
   
   
@@ -665,10 +671,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../migration/upgrade-to-3.5/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Upgrade to 3.5
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -684,6 +717,92 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Changed
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backward-compatibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backward Compatibility
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migrating-to-the-new-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migrating to the New Field
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database-credential-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Database Credential Management
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dsc-field-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DSC Field Reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2415,31 +2534,28 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
         
           
-          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
             
   
   
@@ -2457,7 +2573,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2475,7 +2591,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../controller-architecture/" class="md-nav__link">
+      <a href="../../architecture-internals/controller-architecture/" class="md-nav__link">
         
   
   
@@ -2503,7 +2619,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reconciliation-flow/" class="md-nav__link">
+      <a href="../../architecture-internals/reconciliation-flow/" class="md-nav__link">
         
   
   
@@ -2528,37 +2644,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Authentication Internals
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../architecture-internals/authentication-internals/" class="md-nav__link">
         
   
   
@@ -2574,142 +2663,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#subscription-selection-authpolicy-rate-limits-tokenratelimitpolicy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Subscription selection (AuthPolicy) → rate limits (TokenRateLimitPolicy)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#identity-metadata-groups-groups_str-and-telemetry" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Identity metadata: groups, groups_str, and telemetry
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Identity metadata: groups, groups_str, and telemetry">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#api-key-validation-path" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        API key validation path
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#kubernetes-tokenreview-openshift-bearer-token-path" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Kubernetes TokenReview (OpenShift bearer token) path
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#oidc-path" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        OIDC path
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tokenratelimitpolicy-maassubscription_controllergo" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TokenRateLimitPolicy (maassubscription_controller.go)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#troubleshooting-which-field-to-inspect" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Troubleshooting: which field to inspect
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#identity-headers-and-defense-in-depth" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Identity headers and defense-in-depth
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#token-validation-short" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Token validation (short)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#related-documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Related documentation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2728,13 +2681,10 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
@@ -2743,7 +2693,7 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_4" >
         
           
-          <label class="md-nav__link" for="__nav_7_4" id="__nav_7_4_label" tabindex="">
+          <label class="md-nav__link" for="__nav_7_4" id="__nav_7_4_label" tabindex="0">
             
   
   
@@ -3217,10 +3167,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#subscription-selection-authpolicy-rate-limits-tokenratelimitpolicy" class="md-nav__link">
+  <a href="#what-changed" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Subscription selection (AuthPolicy) → rate limits (TokenRateLimitPolicy)
+        What Changed
       
     </span>
   </a>
@@ -3228,82 +3178,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#identity-metadata-groups-groups_str-and-telemetry" class="md-nav__link">
+  <a href="#backward-compatibility" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Identity metadata: groups, groups_str, and telemetry
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Identity metadata: groups, groups_str, and telemetry">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#api-key-validation-path" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        API key validation path
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#kubernetes-tokenreview-openshift-bearer-token-path" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Kubernetes TokenReview (OpenShift bearer token) path
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#oidc-path" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        OIDC path
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tokenratelimitpolicy-maassubscription_controllergo" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TokenRateLimitPolicy (maassubscription_controller.go)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#troubleshooting-which-field-to-inspect" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Troubleshooting: which field to inspect
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#identity-headers-and-defense-in-depth" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Identity headers and defense-in-depth
+        Backward Compatibility
       
     </span>
   </a>
@@ -3311,10 +3189,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#token-validation-short" class="md-nav__link">
+  <a href="#migrating-to-the-new-field" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Token validation (short)
+        Migrating to the New Field
       
     </span>
   </a>
@@ -3322,10 +3200,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#related-documentation" class="md-nav__link">
+  <a href="#verify" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Related documentation
+        Verify
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database-credential-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Database Credential Management
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dsc-field-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DSC Field Reference
       
     </span>
   </a>
@@ -3352,117 +3252,61 @@
   
 
 
-<h1 id="authentication-gateway-identity-internals">Authentication &amp; gateway identity (internals)</h1>
-<p>This page describes how <strong>identity and subscription context</strong> are established at the gateway and how <strong>rate limiting</strong> uses them.</p>
-<hr />
-<h2 id="subscription-selection-authpolicy-rate-limits-tokenratelimitpolicy">Subscription selection (AuthPolicy) → rate limits (TokenRateLimitPolicy)</h2>
-<p>Today’s pipeline does <strong>not</strong> drive TokenRateLimitPolicy by splitting group membership in CEL the way older drafts did. The flow is:</p>
-<ol>
-<li><strong>AuthPolicy</strong> (controller-generated per model) authenticates the caller and calls <strong>maas-api</strong> at:</li>
-<li>Default tenant: <code>POST https://maas-api.opendatahub.svc.cluster.local:8443/internal/v1/subscriptions/select</code></li>
-<li>Additional tenants: <code>POST https://maas-api-{tenantID}.opendatahub.svc.cluster.local:8443/internal/v1/subscriptions/select</code></li>
-</ol>
-<p>with the caller’s groups, username, requested subscription header (when applicable), and model scope.</p>
-<ol>
-<li>
-<p><strong>maas-api</strong> resolves which <strong>MaaSSubscription</strong> applies (including validation, auto-selection when only one subscription applies, and error paths). Results are exposed to Authorino as <strong><code>subscription-info</code></strong> metadata.</p>
-</li>
-<li>
-<p><strong>AuthPolicy <code>filters.identity</code></strong> copies resolved fields onto <strong><code>auth.identity</code></strong>, including:</p>
-</li>
-<li>
-<p><strong><code>selected_subscription_key</code></strong> — model-scoped key of the form<br />
-<code>{subscriptionNamespace}/{subscriptionName}@{modelNamespace}/{modelName}</code><br />
-     This is the value <strong>rate limiting</strong> keys off.</p>
-</li>
-<li>
-<p><strong>TokenRateLimitPolicy</strong> (aggregated per model by the MaaSSubscription reconciler) defines <strong>one limit entry per subscription</strong> that applies to that model. Each limit’s <strong><code>when</code></strong> predicate matches requests where<br />
-<code>auth.identity.selected_subscription_key</code> equals that subscription’s scoped key (and inference paths are distinguished from discovery; <code>/v1/models</code> is exempt from token consumption limits where configured).</p>
-</li>
-</ol>
-<p>So enforcement is: <strong>subscription resolved in AuthPolicy → same key matched in TRLP</strong>. Group-based <strong>authorization</strong> still uses groups from TokenReview / API key validation in <strong>MaaSAuthPolicy</strong> rules; <strong>rate limit selection</strong> follows the resolved subscription key, not a separate “group split” expression on TRLP.</p>
-<p><strong>TRLP predicates vs other identity:</strong> TokenRateLimitPolicy <strong><code>when</code></strong> clauses use <strong><code>selected_subscription_key</code> only</strong>—not <code>groups_str</code>, group arrays, or header mirrors. Anything else on <code>auth.identity</code> is <strong>not</strong> part of TRLP matching; it exists for <strong>subscription selection</strong> (inputs to maas-api), <strong>Authorino cache/metadata</strong>, and <strong>telemetry</strong> at the gateway/mesh. That matches post–EA2 behavior: limits follow the resolved subscription key; maintainers often describe the remaining decoration as <strong>chiefly telemetry-facing</strong>, aside from selection/caching.</p>
-<hr />
-<h2 id="identity-metadata-groups-groups_str-and-telemetry">Identity metadata: groups, <code>groups_str</code>, and telemetry</h2>
-<p>Behavior is split between <strong><code>filters.identity</code></strong> (what gets serialized onto <strong><code>auth.identity</code></strong> for downstream consumers) and <strong><code>celGroups</code></strong> (what the controller uses for subscription selection and cache keys). Both are defined in <strong><code>maasauthpolicy_controller.go</code></strong>.</p>
-<h3 id="api-key-validation-path">API key validation path</h3>
-<p>After Authorino runs API key validation, <strong><code>auth.metadata.apiKeyValidation</code></strong> is populated. In the generated AuthPolicy <strong>success response</strong> → <strong><code>filters.identity</code></strong> → <strong><code>json.properties</code></strong>, the controller sets:</p>
-<ul>
-<li><strong><code>groups</code></strong> → <code>auth.metadata.apiKeyValidation.groups</code></li>
-<li><strong><code>groups_str</code></strong> → <code>auth.metadata.apiKeyValidation.groups.join(",")</code></li>
-</ul>
-<p>So for <strong>API keys</strong>, <code>groups_str</code> is the comma-joined snapshot from validation metadata.</p>
-<h3 id="kubernetes-tokenreview-openshift-bearer-token-path">Kubernetes <code>TokenReview</code> (OpenShift bearer token) path</h3>
-<p>TokenReview returns groups on <strong><code>status.user.groups</code></strong>. Authorino surfaces that as <strong><code>auth.identity.user.groups</code></strong>.</p>
-<p>The controller <strong>does not</strong> define a separate <code>groups_str</code> expression that reads TokenReview groups. The <strong><code>filters.identity</code></strong> fields above still reference <strong><code>auth.metadata.apiKeyValidation.groups</code></strong> only; without API key metadata those expressions do <strong>not</strong> mirror TokenReview—treat <strong><code>groups_str</code></strong> (and the sibling <strong><code>groups</code></strong> property in that same JSON block) as <strong>empty / irrelevant for pure bearer-token auth</strong>.</p>
-<p>Subscription selection and caching use the <strong><code>celGroups</code></strong> CEL constant in the same file: <strong><code>auth.metadata.apiKeyValidation.groups</code></strong> when API key metadata exists; otherwise <strong><code>auth.identity.groups</code></strong> if present, else <strong><code>auth.identity.user.groups</code></strong>. For TokenReview, inspect <strong><code>auth.identity.user.groups</code></strong>, not <code>groups_str</code> from <code>filters.identity</code>.</p>
-<h3 id="oidc-path">OIDC path</h3>
-<p>When a JWT carries a groups claim, Authorino may populate <strong><code>auth.identity.groups</code></strong>. <strong><code>celGroups</code></strong> uses that branch before falling back to <strong><code>auth.identity.user.groups</code></strong>.</p>
-<h3 id="tokenratelimitpolicy-maassubscription_controllergo">TokenRateLimitPolicy (<code>maassubscription_controller.go</code>)</h3>
-<p>TRLP <strong><code>when</code></strong> predicates match <strong><code>auth.identity.selected_subscription_key</code> only</strong>. Using <strong><code>groups_str</code></strong> for rate limits is <strong>obsolete</strong>.</p>
-<h3 id="troubleshooting-which-field-to-inspect">Troubleshooting: which field to inspect</h3>
+<h1 id="upgrade-to-35">Upgrade to 3.5</h1>
+<h2 id="what-changed">What Changed</h2>
+<p>MaaS moved from <code>kserve.modelsAsService</code> to <code>aigateway.modelsAsAService</code>. KServe is no longer a prerequisite for MaaS.</p>
+<h2 id="backward-compatibility">Backward Compatibility</h2>
+<p><strong>No action required on upgrade.</strong> If your DSC has <code>kserve.modelsAsService: Managed</code>, the operator continues to deploy MaaS automatically through 3.6.</p>
+<p>The old field is read-only once set (<code>self == oldSelf</code>) and will be removed in 3.7.</p>
+<h2 id="migrating-to-the-new-field">Migrating to the New Field</h2>
+<p>When you are ready, update your DSC:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">spec</span><span class="p">:</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">components</span><span class="p">:</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">aigateway</span><span class="p">:</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">      </span><span class="nt">managementState</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Managed</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">      </span><span class="nt">modelsAsAService</span><span class="p">:</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">        </span><span class="nt">managementState</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Managed</span>
+</code></pre></div>
+<p>GitOps users: update your manifest and sync. The old <code>kserve.modelsAsService</code> field cannot be cleared until 3.7 — leave it as-is.</p>
+<h2 id="verify">Verify</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>oc<span class="w"> </span>get<span class="w"> </span>aigateway<span class="w"> </span>default-aigateway
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>oc<span class="w"> </span>get<span class="w"> </span>deployment<span class="w"> </span>-n<span class="w"> </span>opendatahub<span class="w"> </span>ai-gateway-operator
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>oc<span class="w"> </span>get<span class="w"> </span>datasciencecluster<span class="w"> </span>default-dsc<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.spec.components.aigateway.modelsAsAService}&#39;</span>
+</code></pre></div>
+<h2 id="database-credential-management">Database Credential Management</h2>
+<div class="admonition warning">
+<p class="admonition-title">Source of Truth Change</p>
+<p>With infrastructure namespace separation (enabled by default), the <code>maas-db-config</code>
+secret in the infrastructure namespace is the source of truth for database credentials.
+The controller performs a one-time copy during migration but does <strong>not</strong> sync
+subsequent changes.</p>
+<p>If you rotate database credentials, update the secret in the infrastructure namespace
+(e.g., <code>odh-ai-gateway-infra</code> or <code>redhat-ai-gateway-infra</code>). The <code>MaasTenantConfig</code>
+status now includes an <code>infraNamespace</code> field showing where the active secret lives:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>maastenantconfig<span class="w"> </span>default-tenant<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.status.infraNamespace}&#39;</span>
+</code></pre></div>
+<p>See <a href="../../configuration-and-management/infra-namespace-migration/">Infrastructure Namespace Separation</a>
+for details.</p>
+</div>
+<h2 id="dsc-field-reference">DSC Field Reference</h2>
 <table>
 <thead>
 <tr>
-<th>Concern</th>
-<th>API key flow</th>
-<th>TokenReview (kube) token</th>
-<th>OIDC</th>
+<th>3.4</th>
+<th>3.5+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Raw groups after auth</td>
-<td><strong><code>auth.metadata.apiKeyValidation.groups</code></strong></td>
-<td><strong><code>auth.identity.user.groups</code></strong> (from TokenReview <strong><code>status.user.groups</code></strong>)</td>
-<td><strong><code>auth.identity.groups</code></strong> if present, else <strong><code>auth.identity.user.groups</code></strong></td>
+<td><code>kserve.managementState: Managed</code></td>
+<td>Not required for MaaS</td>
 </tr>
 <tr>
-<td>Serialized <strong><code>groups_str</code> in <code>filters.identity</code></strong></td>
-<td>From <strong><code>apiKeyValidation.groups.join(",")</code></strong></td>
-<td>Not populated from TokenReview (still tied to apiKeyValidation expression)</td>
-<td>Same—only apiKeyValidation drives that JSON property</td>
-</tr>
-<tr>
-<td>Subscription selection + Authorino cache inputs</td>
-<td><strong><code>celGroups</code></strong>, <strong><code>celUsername</code></strong>, <strong><code>celSubscription</code></strong> + <strong><code>auth.metadata["subscription-info"]</code></strong> after select</td>
-<td>Same <strong><code>celGroups</code></strong> branch → <strong><code>auth.identity.user.groups</code></strong></td>
-<td><strong><code>celGroups</code></strong> → <strong><code>auth.identity.groups</code></strong> when set</td>
-</tr>
-<tr>
-<td>Rate limiting</td>
-<td><strong><code>auth.identity.selected_subscription_key</code></strong> after successful select</td>
-<td>Same</td>
-<td>Same</td>
+<td><code>kserve.modelsAsService.managementState: Managed</code></td>
+<td><code>aigateway.modelsAsAService.managementState: Managed</code></td>
 </tr>
 </tbody>
 </table>
-<p>If you read older notes about a “string trick” solely for TRLP group matching, treat that as <strong>obsolete</strong>.</p>
-<hr />
-<h2 id="identity-headers-and-defense-in-depth">Identity headers and defense-in-depth</h2>
-<p><strong>Model inference routes</strong> (HTTPRoutes to model workloads):</p>
-<ul>
-<li>Controller-generated AuthPolicies generally <strong>do not</strong> inject most identity headers (<code>X-MaaS-Username</code>, <code>X-MaaS-Group</code>, <code>X-MaaS-Key-Id</code>) upstream to model pods, to reduce leakage via logs or misconfigured proxies.</li>
-</ul>
-<p><strong><code>X-MaaS-Subscription</code></strong> may be injected where gateway telemetry needs a stable subscription label. Any client-supplied <strong><code>X-MaaS-Subscription</code></strong> header is <strong>discarded and replaced</strong> with the server-resolved value from Authorino's <strong>AuthPolicy response phase</strong> (Authorino/Kuadrant AuthPolicy is authoritative—the upstream workload sees only what enforcement injected).</p>
-<p><strong>MaaS API routes</strong> use a separate static AuthPolicy that may inject headers required by maas-api middleware (trusted internal service).</p>
-<hr />
-<h2 id="token-validation-short">Token validation (short)</h2>
-<p><strong>OpenShift tokens:</strong> Authorino uses Kubernetes <strong>TokenReview</strong>; groups and username come from the review result.</p>
-<p><strong>API keys:</strong> Authorino calls MaaS API validation; the key carries a bound subscription; validation returns user fields used for identity and subscription resolution.</p>
-<p><strong>Groups for authorization:</strong> Values in <strong>MaaSAuthPolicy</strong> / <strong>MaaSSubscription</strong> must align with groups from TokenReview or API key validation, not only with OpenShift <code>Group</code> objects, unless your IdP maps them consistently.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nv">TOKEN</span><span class="o">=</span><span class="k">$(</span>kubectl<span class="w"> </span>create<span class="w"> </span>token<span class="w"> </span>default<span class="w"> </span>-n<span class="w"> </span>default<span class="w"> </span>--duration<span class="o">=</span>1m<span class="k">)</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;{&quot;apiVersion&quot;:&quot;authentication.k8s.io/v1&quot;,&quot;kind&quot;:&quot;TokenReview&quot;,&quot;spec&quot;:{&quot;token&quot;:&quot;&#39;</span><span class="nv">$TOKEN</span><span class="s1">&#39;&quot;}}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span>kubectl<span class="w"> </span>create<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.status.user.groups}&#39;</span><span class="w"> </span>-f<span class="w"> </span>-
-</code></pre></div>
-<hr />
-<h2 id="related-documentation">Related documentation</h2>
-<ul>
-<li><a href="../controller-architecture/">Controller Architecture</a></li>
-<li><a href="../reconciliation-flow/">Reconciliation Flow</a></li>
-<li><a href="../../concepts/subscription-overview/">Access and Quota Overview</a></li>
-<li><a href="../../install/maas-setup/">MaaS Setup</a></li>
-</ul>
 
 
 
@@ -3485,7 +3329,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 16, 2026 18:37:57 UTC">June 16, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 16, 2026 18:08:50 UTC">July 16, 2026</span>
   </span>
 
     
@@ -3495,7 +3339,7 @@
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 6, 2026 15:15:25 UTC">May 6, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 13, 2026 18:53:59 UTC">July 13, 2026</span>
   </span>
 
     

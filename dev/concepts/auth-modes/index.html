@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://opendatahub-io.github.io/models-as-a-service/dev/architecture-internals/authentication-internals/">
+        <link rel="canonical" href="https://opendatahub-io.github.io/models-as-a-service/dev/concepts/auth-modes/">
       
       
-        <link rel="prev" href="../reconciliation-flow/">
+        <link rel="prev" href="../model-reference/">
       
       
-        <link rel="next" href="../../contributing/testing-guide/">
+        <link rel="next" href="../api-key-authentication/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Authentication Internals - ODH Models-as-a-Service Documentation</title>
+        <title>Authentication Modes - ODH Models-as-a-Service Documentation</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#authentication-gateway-identity-internals" class="md-skip">
+        <a href="#authentication-modes" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Authentication Internals
+              Authentication Modes
             
           </span>
         </div>
@@ -249,11 +249,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../concepts/architecture/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../architecture/" class="md-tabs__link">
           
   
   
@@ -359,13 +361,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../controller-architecture/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../architecture-internals/controller-architecture/" class="md-tabs__link">
           
   
   
@@ -708,28 +708,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
@@ -747,7 +750,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -765,7 +768,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/architecture/" class="md-nav__link">
+      <a href="../architecture/" class="md-nav__link">
         
   
   
@@ -793,7 +796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/multi-tenancy/" class="md-nav__link">
+      <a href="../multi-tenancy/" class="md-nav__link">
         
   
   
@@ -821,7 +824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/personas/" class="md-nav__link">
+      <a href="../personas/" class="md-nav__link">
         
   
   
@@ -849,7 +852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/subscription-overview/" class="md-nav__link">
+      <a href="../subscription-overview/" class="md-nav__link">
         
   
   
@@ -877,7 +880,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/model-reference/" class="md-nav__link">
+      <a href="../model-reference/" class="md-nav__link">
         
   
   
@@ -902,10 +905,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../concepts/auth-modes/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authentication Modes
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -921,6 +951,103 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mode-1-rhoai-dashboard-platform-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mode 1: RHOAI Dashboard (Platform Gateway)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mode-2-standalone-oidc-client-external-idp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mode 2: Standalone OIDC Client (External IdP)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-both-modes-coexist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Both Modes Coexist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validation-layers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validation Layers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#idp-configuration-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IdP Configuration Requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#field-alignment-tenant-vs-aitenant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Field Alignment (Tenant vs AITenant)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See Also
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -933,7 +1060,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/api-key-authentication/" class="md-nav__link">
+      <a href="../api-key-authentication/" class="md-nav__link">
         
   
   
@@ -961,7 +1088,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/model-access-control/" class="md-nav__link">
+      <a href="../model-access-control/" class="md-nav__link">
         
   
   
@@ -2415,31 +2542,28 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
         
           
-          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
             
   
   
@@ -2457,7 +2581,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2475,7 +2599,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../controller-architecture/" class="md-nav__link">
+      <a href="../../architecture-internals/controller-architecture/" class="md-nav__link">
         
   
   
@@ -2503,7 +2627,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reconciliation-flow/" class="md-nav__link">
+      <a href="../../architecture-internals/reconciliation-flow/" class="md-nav__link">
         
   
   
@@ -2528,37 +2652,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Authentication Internals
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../architecture-internals/authentication-internals/" class="md-nav__link">
         
   
   
@@ -2574,142 +2671,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#subscription-selection-authpolicy-rate-limits-tokenratelimitpolicy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Subscription selection (AuthPolicy) → rate limits (TokenRateLimitPolicy)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#identity-metadata-groups-groups_str-and-telemetry" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Identity metadata: groups, groups_str, and telemetry
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Identity metadata: groups, groups_str, and telemetry">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#api-key-validation-path" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        API key validation path
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#kubernetes-tokenreview-openshift-bearer-token-path" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Kubernetes TokenReview (OpenShift bearer token) path
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#oidc-path" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        OIDC path
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tokenratelimitpolicy-maassubscription_controllergo" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TokenRateLimitPolicy (maassubscription_controller.go)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#troubleshooting-which-field-to-inspect" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Troubleshooting: which field to inspect
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#identity-headers-and-defense-in-depth" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Identity headers and defense-in-depth
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#token-validation-short" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Token validation (short)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#related-documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Related documentation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2728,13 +2689,10 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
@@ -2743,7 +2701,7 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_4" >
         
           
-          <label class="md-nav__link" for="__nav_7_4" id="__nav_7_4_label" tabindex="">
+          <label class="md-nav__link" for="__nav_7_4" id="__nav_7_4_label" tabindex="0">
             
   
   
@@ -3217,10 +3175,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#subscription-selection-authpolicy-rate-limits-tokenratelimitpolicy" class="md-nav__link">
+  <a href="#mode-1-rhoai-dashboard-platform-gateway" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Subscription selection (AuthPolicy) → rate limits (TokenRateLimitPolicy)
+        Mode 1: RHOAI Dashboard (Platform Gateway)
       
     </span>
   </a>
@@ -3228,82 +3186,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#identity-metadata-groups-groups_str-and-telemetry" class="md-nav__link">
+  <a href="#mode-2-standalone-oidc-client-external-idp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Identity metadata: groups, groups_str, and telemetry
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Identity metadata: groups, groups_str, and telemetry">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#api-key-validation-path" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        API key validation path
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#kubernetes-tokenreview-openshift-bearer-token-path" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Kubernetes TokenReview (OpenShift bearer token) path
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#oidc-path" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        OIDC path
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tokenratelimitpolicy-maassubscription_controllergo" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TokenRateLimitPolicy (maassubscription_controller.go)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#troubleshooting-which-field-to-inspect" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Troubleshooting: which field to inspect
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#identity-headers-and-defense-in-depth" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Identity headers and defense-in-depth
+        Mode 2: Standalone OIDC Client (External IdP)
       
     </span>
   </a>
@@ -3311,10 +3197,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#token-validation-short" class="md-nav__link">
+  <a href="#how-both-modes-coexist" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Token validation (short)
+        How Both Modes Coexist
       
     </span>
   </a>
@@ -3322,10 +3208,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#related-documentation" class="md-nav__link">
+  <a href="#validation-layers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Related documentation
+        Validation Layers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#idp-configuration-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IdP Configuration Requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#field-alignment-tenant-vs-aitenant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Field Alignment (Tenant vs AITenant)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See Also
       
     </span>
   </a>
@@ -3352,116 +3271,175 @@
   
 
 
-<h1 id="authentication-gateway-identity-internals">Authentication &amp; gateway identity (internals)</h1>
-<p>This page describes how <strong>identity and subscription context</strong> are established at the gateway and how <strong>rate limiting</strong> uses them.</p>
-<hr />
-<h2 id="subscription-selection-authpolicy-rate-limits-tokenratelimitpolicy">Subscription selection (AuthPolicy) → rate limits (TokenRateLimitPolicy)</h2>
-<p>Today’s pipeline does <strong>not</strong> drive TokenRateLimitPolicy by splitting group membership in CEL the way older drafts did. The flow is:</p>
-<ol>
-<li><strong>AuthPolicy</strong> (controller-generated per model) authenticates the caller and calls <strong>maas-api</strong> at:</li>
-<li>Default tenant: <code>POST https://maas-api.opendatahub.svc.cluster.local:8443/internal/v1/subscriptions/select</code></li>
-<li>Additional tenants: <code>POST https://maas-api-{tenantID}.opendatahub.svc.cluster.local:8443/internal/v1/subscriptions/select</code></li>
-</ol>
-<p>with the caller’s groups, username, requested subscription header (when applicable), and model scope.</p>
-<ol>
-<li>
-<p><strong>maas-api</strong> resolves which <strong>MaaSSubscription</strong> applies (including validation, auto-selection when only one subscription applies, and error paths). Results are exposed to Authorino as <strong><code>subscription-info</code></strong> metadata.</p>
-</li>
-<li>
-<p><strong>AuthPolicy <code>filters.identity</code></strong> copies resolved fields onto <strong><code>auth.identity</code></strong>, including:</p>
-</li>
-<li>
-<p><strong><code>selected_subscription_key</code></strong> — model-scoped key of the form<br />
-<code>{subscriptionNamespace}/{subscriptionName}@{modelNamespace}/{modelName}</code><br />
-     This is the value <strong>rate limiting</strong> keys off.</p>
-</li>
-<li>
-<p><strong>TokenRateLimitPolicy</strong> (aggregated per model by the MaaSSubscription reconciler) defines <strong>one limit entry per subscription</strong> that applies to that model. Each limit’s <strong><code>when</code></strong> predicate matches requests where<br />
-<code>auth.identity.selected_subscription_key</code> equals that subscription’s scoped key (and inference paths are distinguished from discovery; <code>/v1/models</code> is exempt from token consumption limits where configured).</p>
-</li>
-</ol>
-<p>So enforcement is: <strong>subscription resolved in AuthPolicy → same key matched in TRLP</strong>. Group-based <strong>authorization</strong> still uses groups from TokenReview / API key validation in <strong>MaaSAuthPolicy</strong> rules; <strong>rate limit selection</strong> follows the resolved subscription key, not a separate “group split” expression on TRLP.</p>
-<p><strong>TRLP predicates vs other identity:</strong> TokenRateLimitPolicy <strong><code>when</code></strong> clauses use <strong><code>selected_subscription_key</code> only</strong>—not <code>groups_str</code>, group arrays, or header mirrors. Anything else on <code>auth.identity</code> is <strong>not</strong> part of TRLP matching; it exists for <strong>subscription selection</strong> (inputs to maas-api), <strong>Authorino cache/metadata</strong>, and <strong>telemetry</strong> at the gateway/mesh. That matches post–EA2 behavior: limits follow the resolved subscription key; maintainers often describe the remaining decoration as <strong>chiefly telemetry-facing</strong>, aside from selection/caching.</p>
-<hr />
-<h2 id="identity-metadata-groups-groups_str-and-telemetry">Identity metadata: groups, <code>groups_str</code>, and telemetry</h2>
-<p>Behavior is split between <strong><code>filters.identity</code></strong> (what gets serialized onto <strong><code>auth.identity</code></strong> for downstream consumers) and <strong><code>celGroups</code></strong> (what the controller uses for subscription selection and cache keys). Both are defined in <strong><code>maasauthpolicy_controller.go</code></strong>.</p>
-<h3 id="api-key-validation-path">API key validation path</h3>
-<p>After Authorino runs API key validation, <strong><code>auth.metadata.apiKeyValidation</code></strong> is populated. In the generated AuthPolicy <strong>success response</strong> → <strong><code>filters.identity</code></strong> → <strong><code>json.properties</code></strong>, the controller sets:</p>
+<h1 id="authentication-modes">Authentication Modes</h1>
+<p>MaaS supports two authentication paths for accessing models. Both paths produce the same result — an authenticated identity that the gateway validates — but they differ in how the user obtains their token and which component validates it.</p>
+<h2 id="mode-1-rhoai-dashboard-platform-gateway">Mode 1: RHOAI Dashboard (Platform Gateway)</h2>
+<p>Users log in through the RHOAI Dashboard, which authenticates via OpenShift OAuth. The Dashboard's kube-auth-proxy handles the OAuth flow and produces an OpenShift access token.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>User → RHOAI Dashboard → OpenShift OAuth → kube-auth-proxy
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  → Dashboard UI → BFF → maas-api (mint API key)
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  → User uses API key for inference
+</code></pre></div>
+<p><strong>Token validation layer:</strong> Gateway / Authorino validates the API key via <code>POST /internal/v1/api-keys/validate</code> callback to maas-api.</p>
+<p><strong>What the admin configures:</strong></p>
 <ul>
-<li><strong><code>groups</code></strong> → <code>auth.metadata.apiKeyValidation.groups</code></li>
-<li><strong><code>groups_str</code></strong> → <code>auth.metadata.apiKeyValidation.groups.join(",")</code></li>
+<li>Nothing MaaS-specific — authentication is handled by the platform (OpenShift OAuth + kube-auth-proxy)</li>
+<li>API keys are minted through the Dashboard UI or BFF, bound to the user's OpenShift identity and groups</li>
+<li>The user's group membership (from OpenShift) determines which subscriptions and models are accessible</li>
 </ul>
-<p>So for <strong>API keys</strong>, <code>groups_str</code> is the comma-joined snapshot from validation metadata.</p>
-<h3 id="kubernetes-tokenreview-openshift-bearer-token-path">Kubernetes <code>TokenReview</code> (OpenShift bearer token) path</h3>
-<p>TokenReview returns groups on <strong><code>status.user.groups</code></strong>. Authorino surfaces that as <strong><code>auth.identity.user.groups</code></strong>.</p>
-<p>The controller <strong>does not</strong> define a separate <code>groups_str</code> expression that reads TokenReview groups. The <strong><code>filters.identity</code></strong> fields above still reference <strong><code>auth.metadata.apiKeyValidation.groups</code></strong> only; without API key metadata those expressions do <strong>not</strong> mirror TokenReview—treat <strong><code>groups_str</code></strong> (and the sibling <strong><code>groups</code></strong> property in that same JSON block) as <strong>empty / irrelevant for pure bearer-token auth</strong>.</p>
-<p>Subscription selection and caching use the <strong><code>celGroups</code></strong> CEL constant in the same file: <strong><code>auth.metadata.apiKeyValidation.groups</code></strong> when API key metadata exists; otherwise <strong><code>auth.identity.groups</code></strong> if present, else <strong><code>auth.identity.user.groups</code></strong>. For TokenReview, inspect <strong><code>auth.identity.user.groups</code></strong>, not <code>groups_str</code> from <code>filters.identity</code>.</p>
-<h3 id="oidc-path">OIDC path</h3>
-<p>When a JWT carries a groups claim, Authorino may populate <strong><code>auth.identity.groups</code></strong>. <strong><code>celGroups</code></strong> uses that branch before falling back to <strong><code>auth.identity.user.groups</code></strong>.</p>
-<h3 id="tokenratelimitpolicy-maassubscription_controllergo">TokenRateLimitPolicy (<code>maassubscription_controller.go</code>)</h3>
-<p>TRLP <strong><code>when</code></strong> predicates match <strong><code>auth.identity.selected_subscription_key</code> only</strong>. Using <strong><code>groups_str</code></strong> for rate limits is <strong>obsolete</strong>.</p>
-<h3 id="troubleshooting-which-field-to-inspect">Troubleshooting: which field to inspect</h3>
+<p><strong>When to use:</strong> Interactive access through the RHOAI web interface. This is the default path for data scientists using the MaaS Playground or managing API keys through the Dashboard.</p>
+<h2 id="mode-2-standalone-oidc-client-external-idp">Mode 2: Standalone OIDC Client (External IdP)</h2>
+<p>Users authenticate directly against an external identity provider (Keycloak, Entra ID, Okta) and present a JWT bearer token to the MaaS gateway. Authorino validates the JWT against the IdP's JWKS endpoint.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>User → External IdP (Keycloak / Entra ID) → JWT token
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  → MaaS Gateway → Authorino validates JWT via JWKS
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  → maas-api (mint API key with OIDC identity)
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  → User uses API key for inference
+</code></pre></div>
+<p><strong>Token validation layer:</strong> Gateway / Authorino validates the JWT locally using cached JWKS keys from the IdP. The <code>azp</code> (authorized party) claim is checked against the configured <code>clientId</code>.</p>
+<p><strong>What the admin configures:</strong></p>
+<p>For AITenant-managed tenants (including the default tenant), configure OIDC on the AITenant CR:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">maas.opendatahub.io/v1alpha1</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AITenant</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nt">metadata</span><span class="p">:</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">models-as-a-service</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ai-tenants</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="nt">spec</span><span class="p">:</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span><span class="nt">oidc</span><span class="p">:</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="nt">issuerUrl</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://keycloak.example.com/realms/maas&quot;</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="nt">clientId</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">maas-api</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="nt">ttl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">300</span>
+</code></pre></div>
 <table>
 <thead>
 <tr>
-<th>Concern</th>
-<th>API key flow</th>
-<th>TokenReview (kube) token</th>
-<th>OIDC</th>
+<th>Field</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Raw groups after auth</td>
-<td><strong><code>auth.metadata.apiKeyValidation.groups</code></strong></td>
-<td><strong><code>auth.identity.user.groups</code></strong> (from TokenReview <strong><code>status.user.groups</code></strong>)</td>
-<td><strong><code>auth.identity.groups</code></strong> if present, else <strong><code>auth.identity.user.groups</code></strong></td>
+<td><code>issuerUrl</code></td>
+<td>OIDC issuer URL (must be HTTPS). Must serve <code>.well-known/openid-configuration</code>.</td>
 </tr>
 <tr>
-<td>Serialized <strong><code>groups_str</code> in <code>filters.identity</code></strong></td>
-<td>From <strong><code>apiKeyValidation.groups.join(",")</code></strong></td>
-<td>Not populated from TokenReview (still tied to apiKeyValidation expression)</td>
-<td>Same—only apiKeyValidation drives that JSON property</td>
+<td><code>clientId</code></td>
+<td>OAuth2 client ID. Tokens must have <code>azp</code> claim matching this value.</td>
 </tr>
 <tr>
-<td>Subscription selection + Authorino cache inputs</td>
-<td><strong><code>celGroups</code></strong>, <strong><code>celUsername</code></strong>, <strong><code>celSubscription</code></strong> + <strong><code>auth.metadata["subscription-info"]</code></strong> after select</td>
-<td>Same <strong><code>celGroups</code></strong> branch → <strong><code>auth.identity.user.groups</code></strong></td>
-<td><strong><code>celGroups</code></strong> → <strong><code>auth.identity.groups</code></strong> when set</td>
-</tr>
-<tr>
-<td>Rate limiting</td>
-<td><strong><code>auth.identity.selected_subscription_key</code></strong> after successful select</td>
-<td>Same</td>
-<td>Same</td>
+<td><code>ttl</code></td>
+<td>JWKS cache duration in seconds (default: 300, minimum: 30).</td>
 </tr>
 </tbody>
 </table>
-<p>If you read older notes about a “string trick” solely for TRLP group matching, treat that as <strong>obsolete</strong>.</p>
-<hr />
-<h2 id="identity-headers-and-defense-in-depth">Identity headers and defense-in-depth</h2>
-<p><strong>Model inference routes</strong> (HTTPRoutes to model workloads):</p>
-<ul>
-<li>Controller-generated AuthPolicies generally <strong>do not</strong> inject most identity headers (<code>X-MaaS-Username</code>, <code>X-MaaS-Group</code>, <code>X-MaaS-Key-Id</code>) upstream to model pods, to reduce leakage via logs or misconfigured proxies.</li>
-</ul>
-<p><strong><code>X-MaaS-Subscription</code></strong> may be injected where gateway telemetry needs a stable subscription label. Any client-supplied <strong><code>X-MaaS-Subscription</code></strong> header is <strong>discarded and replaced</strong> with the server-resolved value from Authorino's <strong>AuthPolicy response phase</strong> (Authorino/Kuadrant AuthPolicy is authoritative—the upstream workload sees only what enforcement injected).</p>
-<p><strong>MaaS API routes</strong> use a separate static AuthPolicy that may inject headers required by maas-api middleware (trusted internal service).</p>
-<hr />
-<h2 id="token-validation-short">Token validation (short)</h2>
-<p><strong>OpenShift tokens:</strong> Authorino uses Kubernetes <strong>TokenReview</strong>; groups and username come from the review result.</p>
-<p><strong>API keys:</strong> Authorino calls MaaS API validation; the key carries a bound subscription; validation returns user fields used for identity and subscription resolution.</p>
-<p><strong>Groups for authorization:</strong> Values in <strong>MaaSAuthPolicy</strong> / <strong>MaaSSubscription</strong> must align with groups from TokenReview or API key validation, not only with OpenShift <code>Group</code> objects, unless your IdP maps them consistently.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nv">TOKEN</span><span class="o">=</span><span class="k">$(</span>kubectl<span class="w"> </span>create<span class="w"> </span>token<span class="w"> </span>default<span class="w"> </span>-n<span class="w"> </span>default<span class="w"> </span>--duration<span class="o">=</span>1m<span class="k">)</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;{&quot;apiVersion&quot;:&quot;authentication.k8s.io/v1&quot;,&quot;kind&quot;:&quot;TokenReview&quot;,&quot;spec&quot;:{&quot;token&quot;:&quot;&#39;</span><span class="nv">$TOKEN</span><span class="s1">&#39;&quot;}}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span>kubectl<span class="w"> </span>create<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.status.user.groups}&#39;</span><span class="w"> </span>-f<span class="w"> </span>-
+<p>For unmanaged tenants (not backed by an AITenant), configure OIDC on the Tenant CR directly:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">maas.opendatahub.io/v1alpha1</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tenant</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nt">metadata</span><span class="p">:</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default-tenant</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">models-as-a-service</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="nt">spec</span><span class="p">:</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span><span class="nt">externalOIDC</span><span class="p">:</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="nt">issuerUrl</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://keycloak.example.com/realms/maas&quot;</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="nt">clientId</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">maas-api</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="nt">ttl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">300</span>
 </code></pre></div>
-<hr />
-<h2 id="related-documentation">Related documentation</h2>
+<p><strong>When to use:</strong> Programmatic API access from CI/CD pipelines, external applications, or enterprise environments that federate identity through a central IdP rather than OpenShift OAuth.</p>
+<h2 id="how-both-modes-coexist">How Both Modes Coexist</h2>
+<p>Both modes work simultaneously on the same gateway. The AuthPolicy generated by the MaaS controller accepts:</p>
+<ol>
+<li><strong>OpenShift tokens</strong> — validated via Kubernetes TokenReview</li>
+<li><strong>API keys</strong> (<code>sk-oai-*</code>) — validated via maas-api callback</li>
+<li><strong>OIDC JWTs</strong> (when configured) — validated locally by Authorino against cached JWKS</li>
+</ol>
+<p>The order of evaluation is determined by Authorino's authentication chain. A request succeeds if <strong>any</strong> authenticator matches. There is no conflict between modes — they use different token formats and different validation paths.</p>
+<h2 id="validation-layers">Validation Layers</h2>
+<table>
+<thead>
+<tr>
+<th>What</th>
+<th>Where validated</th>
+<th>How</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OpenShift bearer token</td>
+<td>Gateway / Authorino</td>
+<td>Kubernetes TokenReview API</td>
+</tr>
+<tr>
+<td>API key (<code>sk-oai-*</code>)</td>
+<td>Gateway / Authorino → maas-api</td>
+<td>HTTP callback to <code>/internal/v1/api-keys/validate</code></td>
+</tr>
+<tr>
+<td>OIDC JWT</td>
+<td>Gateway / Authorino</td>
+<td>Local JWKS validation (cached from IdP)</td>
+</tr>
+<tr>
+<td>Subscription + group authorization</td>
+<td>Gateway / Authorino → maas-api</td>
+<td>HTTP callback to <code>/internal/v1/subscriptions/select</code></td>
+</tr>
+<tr>
+<td>Token rate limiting</td>
+<td>Gateway / Kuadrant + Limitador</td>
+<td>WASM shim evaluates TokenRateLimitPolicy</td>
+</tr>
+</tbody>
+</table>
+<h2 id="idp-configuration-requirements">IdP Configuration Requirements</h2>
+<p>For Mode 2 (standalone OIDC), the IdP must:</p>
 <ul>
-<li><a href="../controller-architecture/">Controller Architecture</a></li>
-<li><a href="../reconciliation-flow/">Reconciliation Flow</a></li>
-<li><a href="../../concepts/subscription-overview/">Access and Quota Overview</a></li>
-<li><a href="../../install/maas-setup/">MaaS Setup</a></li>
+<li>Serve <code>/.well-known/openid-configuration</code> over HTTPS at the <code>issuerUrl</code></li>
+<li>Include <code>azp</code> (authorized party) claim in issued tokens matching the configured <code>clientId</code></li>
+<li>Expose a JWKS endpoint for public key retrieval</li>
+<li>Issue tokens with group claims if group-based authorization is needed (claim name depends on IdP configuration)</li>
+</ul>
+<p>MaaS does <strong>not</strong> perform OAuth2 client authentication (no <code>client_secret</code>). It validates bearer tokens only. Client authentication and secret management are the IdP's responsibility.</p>
+<h2 id="field-alignment-tenant-vs-aitenant">Field Alignment (Tenant vs AITenant)</h2>
+<p>Configuration fields align between Tenant CR and AITenant CR:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Tenant CR path</th>
+<th>AITenant CR path</th>
+<th>Semantics</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Issuer URL</td>
+<td><code>spec.externalOIDC.issuerUrl</code></td>
+<td><code>spec.oidc.issuerUrl</code></td>
+<td>OIDC discovery endpoint (HTTPS required)</td>
+</tr>
+<tr>
+<td>Client ID</td>
+<td><code>spec.externalOIDC.clientId</code></td>
+<td><code>spec.oidc.clientId</code></td>
+<td>OAuth2 client ID for <code>azp</code> claim matching</td>
+</tr>
+<tr>
+<td>JWKS TTL</td>
+<td><code>spec.externalOIDC.ttl</code></td>
+<td><code>spec.oidc.ttl</code></td>
+<td>Cache duration for JWKS keys (seconds)</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For AITenant-managed tenants, set OIDC on the AITenant CR. The controller propagates the configuration to the tenant's gateway AuthPolicy. The Tenant CR's <code>externalOIDC</code> field is ignored for AITenant-managed tenants.</p>
+</div>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../../advanced-administration/external-oidc/">External OIDC Configuration</a> — JWKS cache TTL, monitoring, security controls</li>
+<li><a href="../api-key-authentication/">API Key Authentication</a> — API key creation flow and architecture</li>
+<li><a href="../../architecture-internals/authentication-internals/">Authentication Internals</a> — Gateway identity pipeline details</li>
+<li><a href="../../reference/crds/tenant/">Tenant CRD Reference</a> — Full Tenant spec including OIDC fields</li>
+<li><a href="../../reference/crds/ai-tenant/">AITenant CRD Reference</a> — AITenant spec including OIDC fields</li>
 </ul>
 
 
@@ -3485,7 +3463,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 16, 2026 18:37:57 UTC">June 16, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 8, 2026 22:18:29 UTC">July 8, 2026</span>
   </span>
 
     
@@ -3495,7 +3473,7 @@
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 6, 2026 15:15:25 UTC">May 6, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 8, 2026 22:18:29 UTC">July 8, 2026</span>
   </span>
 
     

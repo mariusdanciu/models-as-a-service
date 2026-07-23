@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://opendatahub-io.github.io/models-as-a-service/dev/architecture-internals/authentication-internals/">
+        <link rel="canonical" href="https://opendatahub-io.github.io/models-as-a-service/dev/install/multi-tenant-validation/">
       
       
-        <link rel="prev" href="../reconciliation-flow/">
+        <link rel="prev" href="../multi-tenant-setup/">
       
       
-        <link rel="next" href="../../contributing/testing-guide/">
+        <link rel="next" href="../troubleshooting/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Authentication Internals - ODH Models-as-a-Service Documentation</title>
+        <title>Multi-Tenant Validation - ODH Models-as-a-Service Documentation</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#authentication-gateway-identity-internals" class="md-skip">
+        <a href="#multi-tenant-validation" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Authentication Internals
+              Multi-Tenant Validation
             
           </span>
         </div>
@@ -269,10 +269,12 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../../quickstart/" class="md-tabs__link">
           
   
@@ -359,13 +361,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../controller-architecture/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../architecture-internals/controller-architecture/" class="md-tabs__link">
           
   
   
@@ -993,28 +993,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -1032,7 +1035,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1084,10 +1087,13 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
@@ -1096,7 +1102,7 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
         
           
-          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
             
   
   
@@ -1132,7 +1138,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../install/prerequisites/" class="md-nav__link">
+      <a href="../prerequisites/" class="md-nav__link">
         
   
   
@@ -1160,7 +1166,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../install/platform-setup/" class="md-nav__link">
+      <a href="../platform-setup/" class="md-nav__link">
         
   
   
@@ -1193,28 +1199,31 @@
                 
   
   
+    
   
   
+  
     
     
     
     
       
       
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
         
           
+          
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3" >
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
             
   
   
@@ -1232,7 +1241,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1250,7 +1259,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../install/maas-setup/" class="md-nav__link">
+      <a href="../maas-setup/" class="md-nav__link">
         
   
   
@@ -1278,7 +1287,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../install/model-setup/" class="md-nav__link">
+      <a href="../model-setup/" class="md-nav__link">
         
   
   
@@ -1306,7 +1315,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../install/external-model-setup/" class="md-nav__link">
+      <a href="../external-model-setup/" class="md-nav__link">
         
   
   
@@ -1334,7 +1343,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../install/validation/" class="md-nav__link">
+      <a href="../validation/" class="md-nav__link">
         
   
   
@@ -1362,7 +1371,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../install/multi-tenant-setup/" class="md-nav__link">
+      <a href="../multi-tenant-setup/" class="md-nav__link">
         
   
   
@@ -1387,10 +1396,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../install/multi-tenant-validation/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-Tenant Validation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1406,6 +1442,197 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-verify-aitenant-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Verify AITenant Status
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-verify-tenant-namespace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Verify Tenant Namespace
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-verify-maas-api-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Verify maas-api Deployment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-verify-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Verify Gateway
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-verify-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Verify Policies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-test-model-listing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Test Model Listing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-test-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Test Authentication
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-test-tenant-isolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Test Tenant Isolation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-verify-all-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Verify All Components
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aitenant-stuck-in-pending" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AITenant stuck in Pending
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#webhook-rejects-aitenant-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Webhook rejects AITenant creation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gateway-uniqueness-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gateway uniqueness error
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maassubscription-rejected" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MaaSSubscription rejected
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See Also
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1418,7 +1645,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../install/troubleshooting/" class="md-nav__link">
+      <a href="../troubleshooting/" class="md-nav__link">
         
   
   
@@ -2415,31 +2642,28 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
         
           
-          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
             
   
   
@@ -2457,7 +2681,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2475,7 +2699,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../controller-architecture/" class="md-nav__link">
+      <a href="../../architecture-internals/controller-architecture/" class="md-nav__link">
         
   
   
@@ -2503,7 +2727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reconciliation-flow/" class="md-nav__link">
+      <a href="../../architecture-internals/reconciliation-flow/" class="md-nav__link">
         
   
   
@@ -2528,37 +2752,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Authentication Internals
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../architecture-internals/authentication-internals/" class="md-nav__link">
         
   
   
@@ -2574,142 +2771,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#subscription-selection-authpolicy-rate-limits-tokenratelimitpolicy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Subscription selection (AuthPolicy) → rate limits (TokenRateLimitPolicy)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#identity-metadata-groups-groups_str-and-telemetry" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Identity metadata: groups, groups_str, and telemetry
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Identity metadata: groups, groups_str, and telemetry">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#api-key-validation-path" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        API key validation path
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#kubernetes-tokenreview-openshift-bearer-token-path" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Kubernetes TokenReview (OpenShift bearer token) path
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#oidc-path" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        OIDC path
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tokenratelimitpolicy-maassubscription_controllergo" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TokenRateLimitPolicy (maassubscription_controller.go)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#troubleshooting-which-field-to-inspect" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Troubleshooting: which field to inspect
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#identity-headers-and-defense-in-depth" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Identity headers and defense-in-depth
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#token-validation-short" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Token validation (short)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#related-documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Related documentation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2728,13 +2789,10 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
@@ -2743,7 +2801,7 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_4" >
         
           
-          <label class="md-nav__link" for="__nav_7_4" id="__nav_7_4_label" tabindex="">
+          <label class="md-nav__link" for="__nav_7_4" id="__nav_7_4_label" tabindex="0">
             
   
   
@@ -3217,10 +3275,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#subscription-selection-authpolicy-rate-limits-tokenratelimitpolicy" class="md-nav__link">
+  <a href="#1-verify-aitenant-status" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Subscription selection (AuthPolicy) → rate limits (TokenRateLimitPolicy)
+        1. Verify AITenant Status
       
     </span>
   </a>
@@ -3228,22 +3286,110 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#identity-metadata-groups-groups_str-and-telemetry" class="md-nav__link">
+  <a href="#2-verify-tenant-namespace" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Identity metadata: groups, groups_str, and telemetry
+        2. Verify Tenant Namespace
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Identity metadata: groups, groups_str, and telemetry">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-verify-maas-api-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Verify maas-api Deployment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-verify-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Verify Gateway
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-verify-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Verify Policies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-test-model-listing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Test Model Listing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-test-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Test Authentication
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-test-tenant-isolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Test Tenant Isolation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-verify-all-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Verify All Components
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#api-key-validation-path" class="md-nav__link">
+  <a href="#aitenant-stuck-in-pending" class="md-nav__link">
     <span class="md-ellipsis">
       
-        API key validation path
+        AITenant stuck in Pending
       
     </span>
   </a>
@@ -3251,10 +3397,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#kubernetes-tokenreview-openshift-bearer-token-path" class="md-nav__link">
+  <a href="#webhook-rejects-aitenant-creation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Kubernetes TokenReview (OpenShift bearer token) path
+        Webhook rejects AITenant creation
       
     </span>
   </a>
@@ -3262,10 +3408,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#oidc-path" class="md-nav__link">
+  <a href="#gateway-uniqueness-error" class="md-nav__link">
     <span class="md-ellipsis">
       
-        OIDC path
+        Gateway uniqueness error
       
     </span>
   </a>
@@ -3273,21 +3419,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#tokenratelimitpolicy-maassubscription_controllergo" class="md-nav__link">
+  <a href="#maassubscription-rejected" class="md-nav__link">
     <span class="md-ellipsis">
       
-        TokenRateLimitPolicy (maassubscription_controller.go)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#troubleshooting-which-field-to-inspect" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Troubleshooting: which field to inspect
+        MaaSSubscription rejected
       
     </span>
   </a>
@@ -3300,32 +3435,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#identity-headers-and-defense-in-depth" class="md-nav__link">
+  <a href="#see-also" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Identity headers and defense-in-depth
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#token-validation-short" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Token validation (short)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#related-documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Related documentation
+        See Also
       
     </span>
   </a>
@@ -3352,116 +3465,128 @@
   
 
 
-<h1 id="authentication-gateway-identity-internals">Authentication &amp; gateway identity (internals)</h1>
-<p>This page describes how <strong>identity and subscription context</strong> are established at the gateway and how <strong>rate limiting</strong> uses them.</p>
-<hr />
-<h2 id="subscription-selection-authpolicy-rate-limits-tokenratelimitpolicy">Subscription selection (AuthPolicy) → rate limits (TokenRateLimitPolicy)</h2>
-<p>Today’s pipeline does <strong>not</strong> drive TokenRateLimitPolicy by splitting group membership in CEL the way older drafts did. The flow is:</p>
-<ol>
-<li><strong>AuthPolicy</strong> (controller-generated per model) authenticates the caller and calls <strong>maas-api</strong> at:</li>
-<li>Default tenant: <code>POST https://maas-api.opendatahub.svc.cluster.local:8443/internal/v1/subscriptions/select</code></li>
-<li>Additional tenants: <code>POST https://maas-api-{tenantID}.opendatahub.svc.cluster.local:8443/internal/v1/subscriptions/select</code></li>
-</ol>
-<p>with the caller’s groups, username, requested subscription header (when applicable), and model scope.</p>
-<ol>
-<li>
-<p><strong>maas-api</strong> resolves which <strong>MaaSSubscription</strong> applies (including validation, auto-selection when only one subscription applies, and error paths). Results are exposed to Authorino as <strong><code>subscription-info</code></strong> metadata.</p>
-</li>
-<li>
-<p><strong>AuthPolicy <code>filters.identity</code></strong> copies resolved fields onto <strong><code>auth.identity</code></strong>, including:</p>
-</li>
-<li>
-<p><strong><code>selected_subscription_key</code></strong> — model-scoped key of the form<br />
-<code>{subscriptionNamespace}/{subscriptionName}@{modelNamespace}/{modelName}</code><br />
-     This is the value <strong>rate limiting</strong> keys off.</p>
-</li>
-<li>
-<p><strong>TokenRateLimitPolicy</strong> (aggregated per model by the MaaSSubscription reconciler) defines <strong>one limit entry per subscription</strong> that applies to that model. Each limit’s <strong><code>when</code></strong> predicate matches requests where<br />
-<code>auth.identity.selected_subscription_key</code> equals that subscription’s scoped key (and inference paths are distinguished from discovery; <code>/v1/models</code> is exempt from token consumption limits where configured).</p>
-</li>
-</ol>
-<p>So enforcement is: <strong>subscription resolved in AuthPolicy → same key matched in TRLP</strong>. Group-based <strong>authorization</strong> still uses groups from TokenReview / API key validation in <strong>MaaSAuthPolicy</strong> rules; <strong>rate limit selection</strong> follows the resolved subscription key, not a separate “group split” expression on TRLP.</p>
-<p><strong>TRLP predicates vs other identity:</strong> TokenRateLimitPolicy <strong><code>when</code></strong> clauses use <strong><code>selected_subscription_key</code> only</strong>—not <code>groups_str</code>, group arrays, or header mirrors. Anything else on <code>auth.identity</code> is <strong>not</strong> part of TRLP matching; it exists for <strong>subscription selection</strong> (inputs to maas-api), <strong>Authorino cache/metadata</strong>, and <strong>telemetry</strong> at the gateway/mesh. That matches post–EA2 behavior: limits follow the resolved subscription key; maintainers often describe the remaining decoration as <strong>chiefly telemetry-facing</strong>, aside from selection/caching.</p>
-<hr />
-<h2 id="identity-metadata-groups-groups_str-and-telemetry">Identity metadata: groups, <code>groups_str</code>, and telemetry</h2>
-<p>Behavior is split between <strong><code>filters.identity</code></strong> (what gets serialized onto <strong><code>auth.identity</code></strong> for downstream consumers) and <strong><code>celGroups</code></strong> (what the controller uses for subscription selection and cache keys). Both are defined in <strong><code>maasauthpolicy_controller.go</code></strong>.</p>
-<h3 id="api-key-validation-path">API key validation path</h3>
-<p>After Authorino runs API key validation, <strong><code>auth.metadata.apiKeyValidation</code></strong> is populated. In the generated AuthPolicy <strong>success response</strong> → <strong><code>filters.identity</code></strong> → <strong><code>json.properties</code></strong>, the controller sets:</p>
-<ul>
-<li><strong><code>groups</code></strong> → <code>auth.metadata.apiKeyValidation.groups</code></li>
-<li><strong><code>groups_str</code></strong> → <code>auth.metadata.apiKeyValidation.groups.join(",")</code></li>
-</ul>
-<p>So for <strong>API keys</strong>, <code>groups_str</code> is the comma-joined snapshot from validation metadata.</p>
-<h3 id="kubernetes-tokenreview-openshift-bearer-token-path">Kubernetes <code>TokenReview</code> (OpenShift bearer token) path</h3>
-<p>TokenReview returns groups on <strong><code>status.user.groups</code></strong>. Authorino surfaces that as <strong><code>auth.identity.user.groups</code></strong>.</p>
-<p>The controller <strong>does not</strong> define a separate <code>groups_str</code> expression that reads TokenReview groups. The <strong><code>filters.identity</code></strong> fields above still reference <strong><code>auth.metadata.apiKeyValidation.groups</code></strong> only; without API key metadata those expressions do <strong>not</strong> mirror TokenReview—treat <strong><code>groups_str</code></strong> (and the sibling <strong><code>groups</code></strong> property in that same JSON block) as <strong>empty / irrelevant for pure bearer-token auth</strong>.</p>
-<p>Subscription selection and caching use the <strong><code>celGroups</code></strong> CEL constant in the same file: <strong><code>auth.metadata.apiKeyValidation.groups</code></strong> when API key metadata exists; otherwise <strong><code>auth.identity.groups</code></strong> if present, else <strong><code>auth.identity.user.groups</code></strong>. For TokenReview, inspect <strong><code>auth.identity.user.groups</code></strong>, not <code>groups_str</code> from <code>filters.identity</code>.</p>
-<h3 id="oidc-path">OIDC path</h3>
-<p>When a JWT carries a groups claim, Authorino may populate <strong><code>auth.identity.groups</code></strong>. <strong><code>celGroups</code></strong> uses that branch before falling back to <strong><code>auth.identity.user.groups</code></strong>.</p>
-<h3 id="tokenratelimitpolicy-maassubscription_controllergo">TokenRateLimitPolicy (<code>maassubscription_controller.go</code>)</h3>
-<p>TRLP <strong><code>when</code></strong> predicates match <strong><code>auth.identity.selected_subscription_key</code> only</strong>. Using <strong><code>groups_str</code></strong> for rate limits is <strong>obsolete</strong>.</p>
-<h3 id="troubleshooting-which-field-to-inspect">Troubleshooting: which field to inspect</h3>
-<table>
-<thead>
-<tr>
-<th>Concern</th>
-<th>API key flow</th>
-<th>TokenReview (kube) token</th>
-<th>OIDC</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Raw groups after auth</td>
-<td><strong><code>auth.metadata.apiKeyValidation.groups</code></strong></td>
-<td><strong><code>auth.identity.user.groups</code></strong> (from TokenReview <strong><code>status.user.groups</code></strong>)</td>
-<td><strong><code>auth.identity.groups</code></strong> if present, else <strong><code>auth.identity.user.groups</code></strong></td>
-</tr>
-<tr>
-<td>Serialized <strong><code>groups_str</code> in <code>filters.identity</code></strong></td>
-<td>From <strong><code>apiKeyValidation.groups.join(",")</code></strong></td>
-<td>Not populated from TokenReview (still tied to apiKeyValidation expression)</td>
-<td>Same—only apiKeyValidation drives that JSON property</td>
-</tr>
-<tr>
-<td>Subscription selection + Authorino cache inputs</td>
-<td><strong><code>celGroups</code></strong>, <strong><code>celUsername</code></strong>, <strong><code>celSubscription</code></strong> + <strong><code>auth.metadata["subscription-info"]</code></strong> after select</td>
-<td>Same <strong><code>celGroups</code></strong> branch → <strong><code>auth.identity.user.groups</code></strong></td>
-<td><strong><code>celGroups</code></strong> → <strong><code>auth.identity.groups</code></strong> when set</td>
-</tr>
-<tr>
-<td>Rate limiting</td>
-<td><strong><code>auth.identity.selected_subscription_key</code></strong> after successful select</td>
-<td>Same</td>
-<td>Same</td>
-</tr>
-</tbody>
-</table>
-<p>If you read older notes about a “string trick” solely for TRLP group matching, treat that as <strong>obsolete</strong>.</p>
-<hr />
-<h2 id="identity-headers-and-defense-in-depth">Identity headers and defense-in-depth</h2>
-<p><strong>Model inference routes</strong> (HTTPRoutes to model workloads):</p>
-<ul>
-<li>Controller-generated AuthPolicies generally <strong>do not</strong> inject most identity headers (<code>X-MaaS-Username</code>, <code>X-MaaS-Group</code>, <code>X-MaaS-Key-Id</code>) upstream to model pods, to reduce leakage via logs or misconfigured proxies.</li>
-</ul>
-<p><strong><code>X-MaaS-Subscription</code></strong> may be injected where gateway telemetry needs a stable subscription label. Any client-supplied <strong><code>X-MaaS-Subscription</code></strong> header is <strong>discarded and replaced</strong> with the server-resolved value from Authorino's <strong>AuthPolicy response phase</strong> (Authorino/Kuadrant AuthPolicy is authoritative—the upstream workload sees only what enforcement injected).</p>
-<p><strong>MaaS API routes</strong> use a separate static AuthPolicy that may inject headers required by maas-api middleware (trusted internal service).</p>
-<hr />
-<h2 id="token-validation-short">Token validation (short)</h2>
-<p><strong>OpenShift tokens:</strong> Authorino uses Kubernetes <strong>TokenReview</strong>; groups and username come from the review result.</p>
-<p><strong>API keys:</strong> Authorino calls MaaS API validation; the key carries a bound subscription; validation returns user fields used for identity and subscription resolution.</p>
-<p><strong>Groups for authorization:</strong> Values in <strong>MaaSAuthPolicy</strong> / <strong>MaaSSubscription</strong> must align with groups from TokenReview or API key validation, not only with OpenShift <code>Group</code> objects, unless your IdP maps them consistently.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nv">TOKEN</span><span class="o">=</span><span class="k">$(</span>kubectl<span class="w"> </span>create<span class="w"> </span>token<span class="w"> </span>default<span class="w"> </span>-n<span class="w"> </span>default<span class="w"> </span>--duration<span class="o">=</span>1m<span class="k">)</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;{&quot;apiVersion&quot;:&quot;authentication.k8s.io/v1&quot;,&quot;kind&quot;:&quot;TokenReview&quot;,&quot;spec&quot;:{&quot;token&quot;:&quot;&#39;</span><span class="nv">$TOKEN</span><span class="s1">&#39;&quot;}}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span>kubectl<span class="w"> </span>create<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.status.user.groups}&#39;</span><span class="w"> </span>-f<span class="w"> </span>-
+<h1 id="multi-tenant-validation">Multi-Tenant Validation</h1>
+<p>Validation steps for additional tenants. For default (single-tenant) validation, see <a href="../validation/">Validation</a>.</p>
+<h2 id="1-verify-aitenant-status">1. Verify AITenant Status</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nv">TENANT_NAME</span><span class="o">=</span><span class="s2">&quot;red-team&quot;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>oc<span class="w"> </span>get<span class="w"> </span>aitenant<span class="w"> </span><span class="si">${</span><span class="nv">TENANT_NAME</span><span class="si">}</span><span class="w"> </span>-n<span class="w"> </span>ai-tenants
 </code></pre></div>
-<hr />
-<h2 id="related-documentation">Related documentation</h2>
+<p>Expected: <code>READY</code> is <code>True</code>. If <code>False</code>, check conditions:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>oc<span class="w"> </span>get<span class="w"> </span>aitenant<span class="w"> </span><span class="si">${</span><span class="nv">TENANT_NAME</span><span class="si">}</span><span class="w"> </span>-n<span class="w"> </span>ai-tenants<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.status.conditions}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>.
+</code></pre></div>
+<h2 id="2-verify-tenant-namespace">2. Verify Tenant Namespace</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nv">TENANT_NS</span><span class="o">=</span><span class="s2">&quot;ai-tenant-</span><span class="si">${</span><span class="nv">TENANT_NAME</span><span class="si">}</span><span class="s2">&quot;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>oc<span class="w"> </span>get<span class="w"> </span>namespace<span class="w"> </span><span class="si">${</span><span class="nv">TENANT_NS</span><span class="si">}</span><span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.metadata.labels}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>.
+</code></pre></div>
+<p>Expected labels:</p>
 <ul>
-<li><a href="../controller-architecture/">Controller Architecture</a></li>
-<li><a href="../reconciliation-flow/">Reconciliation Flow</a></li>
-<li><a href="../../concepts/subscription-overview/">Access and Quota Overview</a></li>
-<li><a href="../../install/maas-setup/">MaaS Setup</a></li>
+<li><code>ai-gateway.opendatahub.io/tenant: &lt;tenant-name&gt;</code></li>
+<li><code>maas.opendatahub.io/managed-by-aitenant: "true"</code></li>
+</ul>
+<p>Verify the Tenant CR:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>oc<span class="w"> </span>get<span class="w"> </span>tenant<span class="w"> </span>default-tenant<span class="w"> </span>-n<span class="w"> </span><span class="si">${</span><span class="nv">TENANT_NS</span><span class="si">}</span><span class="w"> </span>-o<span class="w"> </span>yaml
+</code></pre></div>
+<p>Expected: <code>status.phase</code> is <code>Active</code>.</p>
+<h2 id="3-verify-maas-api-deployment">3. Verify maas-api Deployment</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nv">INFRA_NS</span><span class="o">=</span><span class="k">$(</span>oc<span class="w"> </span>get<span class="w"> </span>deployment<span class="w"> </span>-A<span class="w"> </span>-o<span class="w"> </span>custom-columns<span class="o">=</span>NS:.metadata.namespace,NAME:.metadata.name<span class="w"> </span>--no-headers<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;maas-api-</span><span class="si">${</span><span class="nv">TENANT_NAME</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $1}&#39;</span><span class="k">)</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>oc<span class="w"> </span>get<span class="w"> </span>deployment<span class="w"> </span>maas-api-<span class="si">${</span><span class="nv">TENANT_NAME</span><span class="si">}</span><span class="w"> </span>-n<span class="w"> </span><span class="si">${</span><span class="nv">INFRA_NS</span><span class="si">}</span>
+</code></pre></div>
+<p>Expected: <code>READY</code> is <code>1/1</code>.</p>
+<h2 id="4-verify-gateway">4. Verify Gateway</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>oc<span class="w"> </span>get<span class="w"> </span>gateway<span class="w"> </span><span class="si">${</span><span class="nv">TENANT_NAME</span><span class="si">}</span><span class="w"> </span>-n<span class="w"> </span>openshift-ingress
+</code></pre></div>
+<p>Expected: <code>PROGRAMMED</code> is <code>True</code>.</p>
+<p>Verify the Route exists:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>oc<span class="w"> </span>get<span class="w"> </span>route<span class="w"> </span><span class="si">${</span><span class="nv">TENANT_NAME</span><span class="si">}</span>-gateway<span class="w"> </span>-n<span class="w"> </span>openshift-ingress
+</code></pre></div>
+<h2 id="5-verify-policies">5. Verify Policies</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>oc<span class="w"> </span>get<span class="w"> </span>authpolicy<span class="w"> </span><span class="si">${</span><span class="nv">TENANT_NAME</span><span class="si">}</span>-maas-auth<span class="w"> </span>-n<span class="w"> </span>openshift-ingress
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>oc<span class="w"> </span>get<span class="w"> </span>tokenratelimitpolicy<span class="w"> </span>-n<span class="w"> </span><span class="si">${</span><span class="nv">TENANT_NS</span><span class="si">}</span>
+</code></pre></div>
+<h2 id="6-test-model-listing">6. Test Model Listing</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nv">GATEWAY_HOST</span><span class="o">=</span><span class="k">$(</span>oc<span class="w"> </span>get<span class="w"> </span>gateway<span class="w"> </span><span class="si">${</span><span class="nv">TENANT_NAME</span><span class="si">}</span><span class="w"> </span>-n<span class="w"> </span>openshift-ingress<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.spec.listeners[0].hostname}&#39;</span><span class="k">)</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nv">TOKEN</span><span class="o">=</span><span class="k">$(</span>oc<span class="w"> </span>whoami<span class="w"> </span>-t<span class="k">)</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>curl<span class="w"> </span>-sSk<span class="w"> </span><span class="s2">&quot;https://</span><span class="si">${</span><span class="nv">GATEWAY_HOST</span><span class="si">}</span><span class="s2">/maas-api/v1/models&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="si">${</span><span class="nv">TOKEN</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>.
+</code></pre></div>
+<p>Expected: <code>200</code> with models configured for this tenant.</p>
+<h2 id="7-test-authentication">7. Test Authentication</h2>
+<p>Without a token (expected: <code>401</code>):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>curl<span class="w"> </span>-sSk<span class="w"> </span>-o<span class="w"> </span>/dev/null<span class="w"> </span>-w<span class="w"> </span><span class="s2">&quot;%{http_code}\n&quot;</span><span class="w"> </span><span class="s2">&quot;https://</span><span class="si">${</span><span class="nv">GATEWAY_HOST</span><span class="si">}</span><span class="s2">/maas-api/v1/models&quot;</span>
+</code></pre></div>
+<p>With a valid API key (expected: <code>200</code>):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nv">API_KEY</span><span class="o">=</span><span class="k">$(</span>curl<span class="w"> </span>-sSk<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="si">${</span><span class="nv">TOKEN</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">  </span>-X<span class="w"> </span>POST<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;name&quot;:&quot;test-key&quot;,&quot;subscription&quot;:&quot;my-subscription&quot;}&#39;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">  </span><span class="s2">&quot;https://</span><span class="si">${</span><span class="nv">GATEWAY_HOST</span><span class="si">}</span><span class="s2">/maas-api/v1/api-keys&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span>.key<span class="k">)</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>curl<span class="w"> </span>-sSk<span class="w"> </span>-w<span class="w"> </span><span class="s2">&quot;\nHTTP: %{http_code}\n&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="si">${</span><span class="nv">API_KEY</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">  </span><span class="s2">&quot;https://</span><span class="si">${</span><span class="nv">GATEWAY_HOST</span><span class="si">}</span><span class="s2">/maas-api/v1/models&quot;</span>
+</code></pre></div>
+<h2 id="8-test-tenant-isolation">8. Test Tenant Isolation</h2>
+<p>Verify that a token minted for one tenant cannot access another tenant's models:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Get default tenant gateway host</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="nv">DEFAULT_HOST</span><span class="o">=</span><span class="k">$(</span>oc<span class="w"> </span>get<span class="w"> </span>gateway<span class="w"> </span>maas-default-gateway<span class="w"> </span>-n<span class="w"> </span>openshift-ingress<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.spec.listeners[0].hostname}&#39;</span><span class="k">)</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="c1"># Try the additional tenant&#39;s API key against the default tenant (expected: 401 or 403)</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>curl<span class="w"> </span>-sSk<span class="w"> </span>-o<span class="w"> </span>/dev/null<span class="w"> </span>-w<span class="w"> </span><span class="s2">&quot;%{http_code}\n&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="si">${</span><span class="nv">API_KEY</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">  </span><span class="s2">&quot;https://</span><span class="si">${</span><span class="nv">DEFAULT_HOST</span><span class="si">}</span><span class="s2">/maas-api/v1/models&quot;</span>
+</code></pre></div>
+<p>Each tenant's maas-api instance serves only its own tenant's data. API keys are scoped to the tenant where they were created.</p>
+<h2 id="9-verify-all-components">9. Verify All Components</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;=== AITenant ===&quot;</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>oc<span class="w"> </span>get<span class="w"> </span>aitenant<span class="w"> </span><span class="si">${</span><span class="nv">TENANT_NAME</span><span class="si">}</span><span class="w"> </span>-n<span class="w"> </span>ai-tenants
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;=== Tenant CR ===&quot;</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>oc<span class="w"> </span>get<span class="w"> </span>tenant<span class="w"> </span>default-tenant<span class="w"> </span>-n<span class="w"> </span><span class="si">${</span><span class="nv">TENANT_NS</span><span class="si">}</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;=== maas-api ===&quot;</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>oc<span class="w"> </span>get<span class="w"> </span>deployment<span class="w"> </span>maas-api-<span class="si">${</span><span class="nv">TENANT_NAME</span><span class="si">}</span><span class="w"> </span>-n<span class="w"> </span><span class="si">${</span><span class="nv">INFRA_NS</span><span class="si">}</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;=== Gateway ===&quot;</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>oc<span class="w"> </span>get<span class="w"> </span>gateway<span class="w"> </span><span class="si">${</span><span class="nv">TENANT_NAME</span><span class="si">}</span><span class="w"> </span>-n<span class="w"> </span>openshift-ingress
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;=== AuthPolicies ===&quot;</span>
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>oc<span class="w"> </span>get<span class="w"> </span>authpolicy<span class="w"> </span><span class="si">${</span><span class="nv">TENANT_NAME</span><span class="si">}</span>-maas-auth<span class="w"> </span>-n<span class="w"> </span>openshift-ingress
+<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>
+<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;=== Subscriptions ===&quot;</span>
+<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a>oc<span class="w"> </span>get<span class="w"> </span>maassubscription<span class="w"> </span>-n<span class="w"> </span><span class="si">${</span><span class="nv">TENANT_NS</span><span class="si">}</span>
+<a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a>
+<a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;=== Model Refs ===&quot;</span>
+<a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a>oc<span class="w"> </span>get<span class="w"> </span>maasmodelref<span class="w"> </span>-n<span class="w"> </span><span class="si">${</span><span class="nv">TENANT_NS</span><span class="si">}</span>
+</code></pre></div>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="aitenant-stuck-in-pending">AITenant stuck in Pending</h3>
+<p>Check the AITenant conditions for the specific reason:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>oc<span class="w"> </span>get<span class="w"> </span>aitenant<span class="w"> </span><span class="si">${</span><span class="nv">TENANT_NAME</span><span class="si">}</span><span class="w"> </span>-n<span class="w"> </span>ai-tenants<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.status.conditions}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>.
+</code></pre></div>
+<p>Common causes:</p>
+<ul>
+<li>Gateway not found or not Programmed</li>
+<li>Database secret (<code>maas-db-config</code>) missing in operator namespace</li>
+<li>Authorino not deployed or TLS not configured</li>
+</ul>
+<h3 id="webhook-rejects-aitenant-creation">Webhook rejects AITenant creation</h3>
+<p>AITenant must be created in the configured infrastructure namespace (default: <code>ai-tenants</code>):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>AITenant ai-tenants/red-team must be created in the configured AITenant infrastructure namespace ai-tenants
+</code></pre></div>
+<h3 id="gateway-uniqueness-error">Gateway uniqueness error</h3>
+<p>Each AITenant requires its own Gateway:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>gateway openshift-ingress/red-team is already in use by AITenant ai-tenants/other-tenant
+</code></pre></div>
+<h3 id="maassubscription-rejected">MaaSSubscription rejected</h3>
+<p>MaaSSubscription and MaaSAuthPolicy must be created in a namespace that contains a <code>Tenant</code> CR. Wait for the AITenant controller to create the Tenant CR before creating these resources.</p>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../multi-tenant-setup/">Multi-Tenant Setup</a></li>
+<li><a href="../validation/">Validation (Default Tenant)</a></li>
+<li><a href="../../configuration-and-management/tenant-rbac/">Tenant RBAC</a></li>
+<li><a href="../../reference/crds/ai-tenant/">AITenant CRD Reference</a></li>
 </ul>
 
 
@@ -3485,7 +3610,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 16, 2026 18:37:57 UTC">June 16, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 8, 2026 22:21:22 UTC">July 8, 2026</span>
   </span>
 
     
@@ -3495,7 +3620,7 @@
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 6, 2026 15:15:25 UTC">May 6, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 8, 2026 22:21:22 UTC">July 8, 2026</span>
   </span>
 
     
