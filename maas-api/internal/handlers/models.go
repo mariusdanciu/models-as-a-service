@@ -349,6 +349,24 @@ func (h *ModelsHandler) aggregateModelsFromSubscriptions(
 
 // ListLLMs handles GET /v1/models.
 func (h *ModelsHandler) ListLLMs(c *gin.Context) {
+	// When no user identity was extracted by the ExtractUserInfoOptional
+	// middleware, return an empty model list.  This covers the case where no
+	// LLMInferenceService is deployed (Authorino has no auth policy and does
+	// not inject identity headers) regardless of whether the caller sent an
+	// Authorization header.
+	_, hasUserContext := c.Get("user")
+	if !hasUserContext {
+		h.logger.Debug("No auth context present, returning empty model list")
+		c.Header("Cache-Control", "no-store")
+		c.Header("X-Access-Checked-At", time.Now().UTC().Format(time.RFC3339))
+		h.logger.Debug("GET /v1/models returning models", "count", 0)
+		c.JSON(http.StatusOK, pagination.Page[models.Model]{
+			Object: "list",
+			Data:   []models.Model{},
+		})
+		return
+	}
+
 	// Validate and extract authentication details
 	authHeader, requestedSubscription, isAPIKeyRequest, err := h.extractAndValidateAuth(c)
 	if err != nil {
@@ -372,6 +390,10 @@ func (h *ModelsHandler) ListLLMs(c *gin.Context) {
 	} else {
 		h.logger.Debug("User token request - returning all accessible models")
 	}
+
+	// Prevent clients and proxies from caching authorization-checked model listings.
+	// Set early so every return path (including early 403s) includes the header.
+	c.Header("Cache-Control", "no-store")
 
 	// Determine which subscriptions to use for model filtering
 	subscriptionsToUse, shouldReturn := h.selectSubscriptionsForListing(c, userContext, requestedSubscription, returnAllModels)
@@ -404,7 +426,6 @@ func (h *ModelsHandler) ListLLMs(c *gin.Context) {
 			} else {
 				// User has zero accessible subscriptions - return empty list
 				h.logger.Debug("User has zero accessible subscriptions, returning empty model list")
-				// modelList is already initialized to empty slice above
 			}
 		} else {
 			// Filter models by subscription(s) and aggregate subscriptions
@@ -417,10 +438,7 @@ func (h *ModelsHandler) ListLLMs(c *gin.Context) {
 		h.logger.Debug("MaaSModelRef lister not configured, returning empty model list")
 	}
 
-	// Prevent clients and proxies from caching authorization-checked model listings.
-	// The access check is a point-in-time snapshot; auth policies may change at any moment.
 	// X-Access-Checked-At lets clients assess the freshness of the authorization decision.
-	c.Header("Cache-Control", "no-store")
 	c.Header("X-Access-Checked-At", accessCheckedAt.Format(time.RFC3339))
 
 	h.logger.Debug("GET /v1/models returning models", "count", len(modelList))

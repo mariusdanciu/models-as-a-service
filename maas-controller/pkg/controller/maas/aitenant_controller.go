@@ -37,12 +37,16 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/apis/meta/v1/unstructured"
 	"k8s.io/apimachinery/pkg/runtime"
+	"k8s.io/apimachinery/pkg/types"
 	"k8s.io/apimachinery/pkg/util/validation"
+	"k8s.io/client-go/tools/record"
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/builder"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/controller/controllerutil"
+	"sigs.k8s.io/controller-runtime/pkg/handler"
 	"sigs.k8s.io/controller-runtime/pkg/predicate"
+	"sigs.k8s.io/controller-runtime/pkg/reconcile"
 	gatewayapiv1 "sigs.k8s.io/gateway-api/apis/v1"
 
 	maasv1alpha1 "github.com/opendatahub-io/models-as-a-service/maas-controller/api/maas/v1alpha1"
@@ -94,6 +98,11 @@ type AITenantReconciler struct {
 	GatewayName string
 	// GatewayNamespace is where tenant Gateway resources are expected to exist.
 	GatewayNamespace string
+	// DeletionTimeout is the maximum duration to wait for AITenant cleanup
+	// before force-removing the finalizer. Zero disables the timeout.
+	DeletionTimeout time.Duration
+	// Recorder emits Kubernetes events for deletion timeout warnings.
+	Recorder record.EventRecorder
 }
 
 // +kubebuilder:rbac:groups=maas.opendatahub.io,resources=aitenants,verbs=get;list;watch;create;update;patch;delete
@@ -175,7 +184,8 @@ func (r *AITenantReconciler) Reconcile(ctx context.Context, req ctrl.Request) (c
 		return ctrl.Result{RequeueAfter: 30 * time.Second}, nil
 	}
 
-	if err := r.ensureTenantConfig(ctx, &aitenant); err != nil {
+	tenantConfigReady, err := r.ensureTenantConfig(ctx, &aitenant)
+	if err != nil {
 		setAITenantPhase(&aitenant, "Failed", "TenantConfigReconcileFailed", err.Error())
 		if err2 := r.updateAITenantStatus(ctx, &aitenant, statusSnapshot); err2 != nil {
 			return ctrl.Result{}, err2
@@ -191,6 +201,14 @@ func (r *AITenantReconciler) Reconcile(ctx context.Context, req ctrl.Request) (c
 		return ctrl.Result{RequeueAfter: 30 * time.Second}, nil
 	}
 
+	if !tenantConfigReady {
+		setAITenantPhase(&aitenant, "Pending", "TenantConfigNotReady", "waiting for MaasTenantConfig to report Ready")
+		if err := r.updateAITenantStatus(ctx, &aitenant, statusSnapshot); err != nil {
+			return ctrl.Result{}, err
+		}
+		return ctrl.Result{RequeueAfter: 30 * time.Second}, nil
+	}
+
 	setAITenantPhase(&aitenant, "Active", "Reconciled", "AITenant bootstrap resources are reconciled")
 	if err := r.updateAITenantStatus(ctx, &aitenant, statusSnapshot); err != nil {
 		return ctrl.Result{}, err
@@ -200,11 +218,37 @@ func (r *AITenantReconciler) Reconcile(ctx context.Context, req ctrl.Request) (c
 
 // SetupWithManager registers the AITenant controller.
 func (r *AITenantReconciler) SetupWithManager(mgr ctrl.Manager) error {
+	if r.Recorder == nil {
+		r.Recorder = mgr.GetEventRecorderFor("maas-aitenant-controller")
+	}
 	return ctrl.NewControllerManagedBy(mgr).
 		For(&maasv1alpha1.AITenant{}, builder.WithPredicates(
 			predicate.Or(predicate.GenerationChangedPredicate{}, predicate.Funcs{UpdateFunc: deletionTimestampSet}),
 		)).
+		Watches(
+			&maasv1alpha1.MaasTenantConfig{},
+			handler.EnqueueRequestsFromMapFunc(r.enqueueAITenantForTenantConfig),
+		).
 		Complete(r)
+}
+
+// enqueueAITenantForTenantConfig maps MaasTenantConfig events back to the
+// owning AITenant. This ensures the AITenant reconciler re-creates the
+// MaasTenantConfig when a ghost from a previous install cycle finishes deleting.
+func (r *AITenantReconciler) enqueueAITenantForTenantConfig(_ context.Context, obj client.Object) []reconcile.Request {
+	annotations := obj.GetAnnotations()
+	if annotations == nil {
+		return nil
+	}
+	name := annotations[aitenantNameAnnotation]
+	ns := annotations[aitenantNamespaceAnnotation]
+	if name == "" || ns == "" {
+		return nil
+	}
+	return []reconcile.Request{{NamespacedName: types.NamespacedName{
+		Name:      name,
+		Namespace: ns,
+	}}}
 }
 
 func (r *AITenantReconciler) validateAITenantPlacement(aitenant *maasv1alpha1.AITenant) error {
@@ -366,8 +410,9 @@ func (r *AITenantReconciler) legacyGatewayNameIsSharedDefault(aitenant *maasv1al
 	return aitenant.Name != tenantreconcile.DefaultAITenantName && gatewayName == defaultGatewayName
 }
 
-func (r *AITenantReconciler) ensureTenantConfig(ctx context.Context, aitenant *maasv1alpha1.AITenant) error {
+func (r *AITenantReconciler) ensureTenantConfig(ctx context.Context, aitenant *maasv1alpha1.AITenant) (bool, error) {
 	tenantNamespace := r.tenantNamespaceName(aitenant)
+
 	config := &maasv1alpha1.MaasTenantConfig{
 		TypeMeta: metav1.TypeMeta{
 			APIVersion: maasv1alpha1.GroupVersion.String(),
@@ -383,15 +428,27 @@ func (r *AITenantReconciler) ensureTenantConfig(ctx context.Context, aitenant *m
 		if !ok {
 			return fmt.Errorf("expected MaasTenantConfig, got %T", obj)
 		}
+		if !t.DeletionTimestamp.IsZero() {
+			return fmt.Errorf("MaasTenantConfig %s/%s is being deleted; waiting for cleanup to finish before recreating", t.Namespace, t.Name)
+		}
 		applyAITenantMetadata(t, aitenant, tenantNamespace)
 		if err := r.copyLegacyTenantConfig(ctx, t); err != nil {
 			return err
 		}
 		return nil
 	}); err != nil {
-		return err
+		return false, err
 	}
-	return r.markLegacyTenantDeprecated(ctx, tenantNamespace)
+	if err := r.markLegacyTenantDeprecated(ctx, tenantNamespace); err != nil {
+		return false, err
+	}
+	if err := r.get(ctx, client.ObjectKeyFromObject(config), config); err != nil {
+		return false, fmt.Errorf("get MaasTenantConfig %s/%s readiness: %w", config.Namespace, config.Name, err)
+	}
+	ready := apimeta.FindStatusCondition(config.Status.Conditions, tenantreconcile.ReadyConditionType)
+	return ready != nil &&
+		ready.Status == metav1.ConditionTrue &&
+		ready.ObservedGeneration == config.Generation, nil
 }
 
 func (r *AITenantReconciler) copyLegacyTenantConfig(ctx context.Context, config *maasv1alpha1.MaasTenantConfig) error {
@@ -509,6 +566,10 @@ func (r *AITenantReconciler) reconcileAITenantDelete(ctx context.Context, aitena
 		return ctrl.Result{}, nil
 	}
 
+	if r.DeletionTimeout > 0 && time.Since(aitenant.DeletionTimestamp.Time) >= r.DeletionTimeout {
+		return r.forceRemoveAITenantFinalizer(ctx, aitenant)
+	}
+
 	tenantNamespace := r.tenantNamespaceName(aitenant)
 	statusSnapshot := aitenant.Status.DeepCopy()
 	aitenant.Status.TenantNamespace = tenantNamespace
@@ -578,6 +639,52 @@ func (r *AITenantReconciler) reconcileAITenantDelete(ctx context.Context, aitena
 		// The AITenant is already unblocked. The Job TTL is a fallback for this
 		// narrow failure window, so report the error without making deletion fail.
 		ctrl.LoggerFrom(ctx).Error(err, "failed to delete completed API key revocation Job")
+	}
+	return ctrl.Result{}, nil
+}
+
+func (r *AITenantReconciler) forceRemoveAITenantFinalizer(ctx context.Context, aitenant *maasv1alpha1.AITenant) (ctrl.Result, error) {
+	log := ctrl.LoggerFrom(ctx)
+	msg := fmt.Sprintf("Deletion timeout (%s) reached; cleanup finalizer removed without successful cleanup — API keys may still exist", r.DeletionTimeout)
+	log.Info("AITenant deletion timeout reached, forcing finalizer removal",
+		"deletionTimestamp", aitenant.DeletionTimestamp.Time,
+		"timeout", r.DeletionTimeout)
+
+	statusSnapshot := aitenant.Status.DeepCopy()
+	setAITenantPhase(aitenant, "Terminating", "CleanupForced", msg)
+	if err := r.updateAITenantStatus(ctx, aitenant, statusSnapshot); err != nil {
+		log.Error(err, "failed to update AITenant status during forced finalizer removal, proceeding with finalizer removal")
+	}
+
+	if r.Recorder != nil {
+		r.Recorder.Eventf(aitenant, corev1.EventTypeWarning, "AITenantCleanupForced",
+			"Deletion timeout (%s) reached for AITenant %s/%s; cleanup finalizer removed without successful cleanup — API keys may still exist",
+			r.DeletionTimeout, aitenant.Namespace, aitenant.Name)
+	}
+
+	if _, err := r.deleteTenantConfig(ctx, aitenant); err != nil {
+		log.Error(err, "best-effort deleteTenantConfig failed during forced finalizer removal")
+	}
+	if err := r.deleteAITenantScopedChildren(ctx, aitenant); err != nil {
+		log.Error(err, "best-effort deleteAITenantScopedChildren failed during forced finalizer removal")
+	}
+	if err := r.releaseTenantNamespace(ctx, aitenant); err != nil {
+		log.Error(err, "best-effort releaseTenantNamespace failed during forced finalizer removal")
+	}
+	if err := r.deleteTenantGatewayAuthPolicy(ctx, aitenant); err != nil {
+		log.Error(err, "best-effort deleteTenantGatewayAuthPolicy failed during forced finalizer removal")
+	}
+	if err := r.deleteGatewayClaim(ctx, aitenant); err != nil {
+		log.Error(err, "best-effort deleteGatewayClaim failed during forced finalizer removal")
+	}
+
+	base := aitenant.DeepCopy()
+	controllerutil.RemoveFinalizer(aitenant, aitenantFinalizer)
+	if err := r.Patch(ctx, aitenant, client.MergeFrom(base)); err != nil {
+		return ctrl.Result{}, err
+	}
+	if err := r.deleteTenantAPIKeyRevocationJob(ctx, aitenant); err != nil {
+		log.Error(err, "best-effort deleteTenantAPIKeyRevocationJob failed during forced finalizer removal")
 	}
 	return ctrl.Result{}, nil
 }
